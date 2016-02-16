@@ -60,6 +60,13 @@ config CGROUP_BFQIO
           filesystem interface.  The name of the subsystem will be
           bfqio.
 
+config IOSCHED_FIFO
+	tristate "FIFO I/O scheduler"
+	default y
+	---help---
+	Fifo is similar to no-op I/O scheduler and it's a minimal scheduler 
+	that does basic merging and sorting.
+
 choice
 	prompt "Default I/O scheduler"
 	default DEFAULT_CFQ
@@ -79,6 +86,9 @@ choice
 	config DEFAULT_BFQ
                 bool "BFQ" if IOSCHED_BFQ=y
 
+	config DEFAULT_FIFO
+		bool "fifo"
+
 endchoice
 
 config DEFAULT_IOSCHED
@@ -87,6 +97,7 @@ config DEFAULT_IOSCHED
 	default "cfq" if DEFAULT_CFQ
 	default "noop" if DEFAULT_NOOP
 	default "bfq" if DEFAULT_BFQ
+	default "fifo" if DEFAULT_FIFO
 
 endmenu
 
