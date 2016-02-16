@@ -430,6 +430,9 @@ extern struct cpufreq_governor cpufreq_gov_darkness;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_HYPER)
 extern struct cpufreq_governor cpufreq_gov_HYPER;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_HYPER)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_NIGHTMARE)
+extern struct cpufreq_governor cpufreq_gov_nightmare;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_nightmare)
 #endif
 
 
